@@ -14,17 +14,20 @@ function App() {
   // })}
   // const projectObj = projectData.map(project => <Project key={project.id} item={project} src={project.img}/>)
   return (
-    <div className="App">
-      <Router>
+    <Router>
+      <div className="App">
         <Header />
         <Switch>
-          <Route path="/" component={AboutMe} />
-          <Route path="/about/" component={AboutMe} />
-          <Route path="/portfolio/" component={Portfolio} />
+          <Route exact path={["/", "/about"]}>
+            <AboutMe />
+          </Route>
+          <Route path="/portfolio">
+            <Portfolio />
+          </Route>
         </Switch>
         <Footer />
-      </Router>
-    </div>
+      </div>
+    </Router>
   )
 }
 
